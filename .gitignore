@@ -1,0 +1,8 @@
+*.pt
+*.lock
+*.pyc
+*.json
+*.zip
+
+cached_models
+ptms
