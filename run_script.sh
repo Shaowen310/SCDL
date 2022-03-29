@@ -2,10 +2,13 @@
 GPUID=$1
 echo "Run on GPU $GPUID"
 
+# data_dir
+DATA_DIR=$2
+
 # data
-DATASET=$2
+DATASET=$3
 PROJECT_ROOT=$(dirname "$(readlink -f "$0")")
-DATA_ROOT=$PROJECT_ROOT/dataset/
+DATA_ROOT=$PROJECT_ROOT/$DATA_DIR/
 
 # model
 TOKENIZER_TYPE=roberta
@@ -70,4 +73,3 @@ CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=$GPUID python3 -u run_script.p
   --do_train \
   --dataset $DATASET \
   --threshold $THRESHOLD \
-
